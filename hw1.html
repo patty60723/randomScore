@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<title>hw-1 </title>
+<div style="margin-top: 20px; margin-left: 15px;">
+
+	<input id="click_button" type="button" onclick="addelement()" value="CLICK ME">
+
+	<table border="1px" style="margin-top: 10px; text-align: center; #000000">
+	<!-ODM 階層下 table 下面有一層 tbody-!>
+	<tbody id = "body">
+
+		<tr style="font-weight: bold;">
+			<td>&nbsp#&nbsp</td>
+			<td>&nbspscore&nbsp</td>
+		</tr>
+
+		<!-放 sum 變數-!>
+		<tr id="tr_sum"></tr>
+
+	</tbody>
+	</table>
+
+</div>
+
+<script>
+var num = 0;
+//# column
+var s_sum = 0;
+//score column
+function addelement()
+{
+	var r = Math.round(Math.random()*100);
+
+	s_sum += r;
+
+	var new_tr = document.createElement("tr");
+	var new_td1 = document.createElement("td");
+	var new_td2 = document.createElement("td");
+
+	var td_content1 = document.createTextNode(++num);
+	var td_content2 = document.createTextNode(r);
+
+	var sum_node = document.getElementById("tr_sum");
+	//body.appendChild(new_tr);
+	body.insertBefore(new_tr, sum_node);
+	//在 sum 的節點前新增其他節點
+
+	new_tr.appendChild(new_td1);
+	new_tr.appendChild(new_td2);
+	new_td1.appendChild(td_content1);
+	new_td2.appendChild(td_content2);
+
+	var sum = document.getElementById("tr_sum");
+	sum.innerHTML = "<td> </td><td>" + s_sum + "</td>";
+
+}
+</script>
+
+
+
+
+
+
+
